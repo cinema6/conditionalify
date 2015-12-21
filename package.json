@@ -22,5 +22,12 @@
   "bugs": {
     "url": "https://github.com/cinema6/conditionalify/issues"
   },
-  "homepage": "https://github.com/cinema6/conditionalify#readme"
+  "homepage": "https://github.com/cinema6/conditionalify#readme",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-jshint": "^0.11.3",
+    "grunt-contrib-watch": "^0.6.1",
+    "jasmine": "^2.4.1"
+  }
 }
