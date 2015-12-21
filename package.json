@@ -1,0 +1,26 @@
+{
+  "name": "conditionalify",
+  "version": "0.0.0",
+  "description": "Browserify transform to remove code from a Browserify build using conditional comments.",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cinema6/conditionalify.git"
+  },
+  "keywords": [
+    "stream",
+    "transform",
+    "browserify",
+    "build",
+    "conditional"
+  ],
+  "author": "Reelcontent Inc.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cinema6/conditionalify/issues"
+  },
+  "homepage": "https://github.com/cinema6/conditionalify#readme"
+}
