@@ -1,6 +1,6 @@
 {
   "name": "conditionalify",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Browserify transform to remove code from a Browserify build using conditional comments.",
   "main": "index.js",
   "scripts": {
