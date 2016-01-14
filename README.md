@@ -71,6 +71,7 @@ The following configuration options are available (and are all optional):
 * **context** (`Object`): An `Object` whose keys will be available as variables in the comment expressions
 * **marker** (`String`): The character to look for at the start of a comment (before `if` or `endif`)—defaults to `#`
 * **ecmaVersion** (`Number`): Version of ECMAScript to pass to [`acorn`](https://www.npmjs.com/package/acorn) when parsing each module
+* **exts** (`Array` of `String`s): A whitelist of file extensions (without the leading ".")—if a file does not have one of the extensions in the list, it will be ignored by conditionalify—defaults to `['js']`
 
 Options may be passed in via standard [browserify](https://github.com/substack/node-browserify#btransformtr-opts) ways:
 
