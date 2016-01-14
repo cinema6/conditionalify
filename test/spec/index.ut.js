@@ -127,4 +127,41 @@ describe('conditionalify()', function() {
             expect(result).toContain('require(');
         });
     });
+
+    describe('with exts', function() {
+        var result;
+
+        beforeEach(function(done) {
+            compile('../helpers/example--require.js', {
+                exts: ['js', 'es6'],
+                context: {
+                    include: false
+                }
+            }).then(function(/*result*/) { result = arguments[0]; }).then(done, done.fail);
+        });
+
+        it('should only transform files that match the ext', function() {
+            expect(result).not.toContain('EXT JS');
+            expect(result).not.toContain('EXT ES6');
+            expect(result).toContain('EXT CUSTOM');
+        });
+    });
+
+    describe('without exts', function() {
+        var result;
+
+        beforeEach(function(done) {
+            compile('../helpers/example--require.js', {
+                context: {
+                    include: false
+                }
+            }).then(function(/*result*/) { result = arguments[0]; }).then(done, done.fail);
+        });
+
+        it('should only transform .js files', function() {
+            expect(result).not.toContain('EXT JS');
+            expect(result).toContain('EXT ES6');
+            expect(result).toContain('EXT CUSTOM');
+        });
+    });
 });

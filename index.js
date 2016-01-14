@@ -4,6 +4,8 @@ var through = require('through2');
 var acorn = require('acorn');
 var expressions = require('angular-expressions');
 var escapeStringRegexp = require('escape-string-regexp');
+var PassThrough = require('stream').PassThrough;
+var extname = require('path').extname;
 
 function getComments(code, ecmaVersion) {
     var comments = [];
@@ -33,6 +35,7 @@ module.exports = function conditionalify(file, options) {
     var context = options.context || {};
     var marker = escapeStringRegexp(options.marker || '#');
     var ecmaVersion = options.ecmaVersion;
+    var exts = (options.exts || ['js']).map(function(ext) { return '.' + ext; });
 
     var directiveMatcher = new RegExp('^' + marker + '(end)?if');
     var directiveStartMatcher = new RegExp('^' + marker + 'if');
@@ -44,6 +47,10 @@ module.exports = function conditionalify(file, options) {
 
     function isEndDirective(value) {
         return directiveEndMatcher.test(value.trim());
+    }
+
+    if (exts.indexOf(extname(file)) < 0) {
+        return new PassThrough();
     }
 
     return through(function transform(buffer, encoding, next) {
